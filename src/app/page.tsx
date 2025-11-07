@@ -1,12 +1,23 @@
 "use client";
 
-import {Button} from "flowbite-react";
+import {UiButton} from "@/components/ui/base/UiButton";
 
 export default function HomePage() {
   return (
     <section className="text-center py-20">
       <h1 className="text-4xl font-bold text-blue-600">Trang Chủ</h1>
-        <Button />
+        <div className="space-y-4 p-8 bg-background min-h-screen">
+            <div className="min-h-screen p-8 space-y-6">
+                <h1 className="text-2xl font-bold text-primary">
+                    FindJob UI Demo
+                </h1>
+
+                <UiButton variant={"primary"}>Button</UiButton>
+                <UiButton variant={"accent"}>Button</UiButton>
+
+
+            </div>
+        </div>
     </section>
   );
 }

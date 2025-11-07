@@ -1,4 +1,4 @@
-import ListJob from "@/features/home/components/job/list";
+import ListJob from "@/features/admin/components/job/list";
 
 export default function JobPage() {
     return (

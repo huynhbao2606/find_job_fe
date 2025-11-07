@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import {categoryReducer} from "@/store/slice/home/categorySlice";
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+      category: categoryReducer
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
