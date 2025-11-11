@@ -1,40 +1,43 @@
 "use client";
 
-import { Button as FBButton, type ButtonProps } from "flowbite-react";
+import { Button as AButton, ButtonProps } from "antd";
 import clsx from "clsx";
 
 interface UiButtonProps extends ButtonProps {
-  variant?: "primary" | "secondary" | "accent" | "outline" | "outlineGoogle";
+  variantCustom?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "outline"
+    | "outlineGoogle";
 }
 
 export function UiButton({
   children,
-  variant = "primary",
+  variantCustom = "primary",
   className,
   ...props
 }: UiButtonProps) {
-  const variants = {
-    primary:
-      "bg-primary hover:bg-primary-500 text-white focus:ring-primary-400",
-    secondary:
-      "bg-secondary hover:bg-secondary-600 text-accent-100 focus:ring-secondary-400",
-    accent: "bg-accent hover:bg-accent-400 text-white focus:ring-accent-300",
-    outline:
-      "border border-red-600 text-red-400 hover:bg-primary-100 focus:ring-red-300",
+  const variantCustoms = {
+    primary: "!bg-primary !text-white !border-none hover:!bg-primary-500",
+    secondary: "!bg-secondary !text-white hover:!bg-secondary-600",
+    accent: "!bg-accent !text-white hover:!bg-accent-400",
+    outline: "!border !border-red-600 !text-red-400 hover:!bg-primary-100",
     outlineGoogle:
-      "border border-red-600 text-red-400 hover:bg-primary-100 focus:ring-red-300",
+      "!border !border-red-600 !text-red-400 hover:!bg-primary-100",
   };
 
   return (
-    <FBButton
+    <AButton
+      type="text" // hoặc "default" nếu muốn có border nhẹ
       className={clsx(
-        "font-semibold rounded-lg transition-all duration-200 h-[44px] max-xl:h-[38px]",
-        variants[variant],
+        "!font-semibold !rounded-lg !transition-all !duration-200 !h-[44px] !text-[16px] !flex !items-center !justify-center gap-2",
+        variantCustoms[variantCustom],
         className
       )}
       {...props}
     >
       {children}
-    </FBButton>
+    </AButton>
   );
 }

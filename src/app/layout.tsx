@@ -1,9 +1,9 @@
-import "./globals.css";
-import FlowbiteInit from "@/app/providers/FlowbiteInit";
 import ReduxProvider from "@/app/providers/ReduxProvider";
-import React from "react";
-import Header from "@/components/home/layout/Header";
 import Footer from "@/components/home/layout/Footer";
+import Header from "@/components/home/layout/Header";
+import React from "react";
+import "./globals.css";
+import { ConfigProvider, DatePicker } from "antd";
 
 export default function RootLayout({
   children,
@@ -11,13 +11,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="vi">
+    <html lang="vi" data-theme="light">
       <body className="flex flex-col min-h-screen">
         <ReduxProvider>
-          <Header />
-          <main className="flex-grow flex">{children}</main>
-          <Footer />
-          <FlowbiteInit />
+          <ConfigProvider
+            theme={{
+              token: {
+                fontFamily:
+                  'Lexend, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+              },
+            }}
+          >
+            <Header />
+            <main className="flex-grow flex">{children}</main>
+            <Footer />
+            <DatePicker />
+          </ConfigProvider>
         </ReduxProvider>
       </body>
     </html>

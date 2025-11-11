@@ -1,14 +1,13 @@
 import type { Config } from "tailwindcss";
-import flowbite from "flowbite/plugin";
 
 const config: Config = {
+  darkMode: false,
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}", // kiểm tra lại nếu components nằm ngoài app
     "./src/app/pages/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js",
   ],
-  plugins: [flowbite],
+  plugins: [],
   theme: {
     extend: {
       screens: {
